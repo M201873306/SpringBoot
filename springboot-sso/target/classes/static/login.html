@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>登陆</h1>
+
+<form method="post" action="/login">
+    <div>
+        <table>用户名：</table>
+        <input name="loginname">
+    </div>
+    <div>
+        <table>密码：</table>
+        <input nloginpwd="password">
+    </div>
+    <button type="submit">登陆</button>
+</form>
+</body>
+</html>
+<script>
+    var redirectUrl = "${redirect}";
+    var LOGIN = {
+        checkInput:function() {
+            if ($("#loginname").val() == "") {
+                alert("用户名不能为空");
+                $("#loginname").focus();
+                return false;
+            }
+            if ($("#nloginpwd").val() == "") {
+                alert("密码不能为空");
+                $("#nloginpwd").focus();
+                return false;
+            }
+            return true;
+        },
+        doLogin:function() {
+            $.post("/user/login", $("#formlogin").serialize(),function(data){
+                if (data.status == 200) {
+                    alert("登录成功！");
+                    if (redirectUrl == "") {
+                        location.href = "http://www.psp.com";
+                    } else {
+                        location.href = redirectUrl;
+                    }
+                } else {
+                    alert("登录失败，原因是：" + data.msg);
+                    $("#loginname").select();
+                }
+            });
+        },
+        login:function() {
+            if (this.checkInput()) {
+                this.doLogin();
+            }
+        }
+    };
+    $(function(){
+        $("#loginsubmit").click(function(){
+            LOGIN.login();
+        });
+    });
+</script>

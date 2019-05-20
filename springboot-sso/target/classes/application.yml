@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysso?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+
+  redis:
+    #redis机器ip
+    host: 127.0.0.1
+    #redis端口
+    port: 6379
+    #redis密码
+    password: rek}j3jdiejdh&%^^*9039876A_+{U
+    #redis超时时间（毫秒），如果不设置，取默认值2000
+    timeout: 10000
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.hust.springbootsso.entity  # 注意：对应实体类的路径
+
