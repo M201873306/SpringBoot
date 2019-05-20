@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "com.my1",
+      "type": "com.hust.springbootconfig.winter.config.MyProperties1",
+      "sourceType": "com.hust.springbootconfig.winter.config.MyProperties1"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.my1.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.hust.springbootconfig.winter.config.MyProperties1",
+      "defaultValue": 0
+    },
+    {
+      "name": "com.my1.name",
+      "type": "java.lang.String",
+      "sourceType": "com.hust.springbootconfig.winter.config.MyProperties1"
+    }
+  ],
+  "hints": []
+}
